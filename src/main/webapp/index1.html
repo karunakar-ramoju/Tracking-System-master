@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://v4-alpha.getbootstrap.com/examples/cover/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v4-alpha.getbootstrap.com/favicon.ico">
+
+    <title>Tracking System App</title>
+
+    <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://v4-alpha.getbootstrap.com/dist/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="https://v4-alpha.getbootstrap.com/examples/cover/cover.css" rel="stylesheet">
+  </head>
+
+  <body>
+  
+    <div class="site-wrapper" ng-app="trackingApp" >
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Tracking System</h3>
+              <nav class="nav nav-masthead">
+                <a class="nav-link" ng-class="{active: (activetab == 'home' || activetab == null )}" ng-click="activetab = 'home'" href="#/">Home</a>
+                <a class="nav-link" ng-class="{active: activetab == 'track'}" ng-click="activetab = 'track'"  href="#submitForm">Track Record</a>
+                <a class="nav-link" ng-class="{active: activetab == 'report'}" ng-click="activetab = 'report'"   href="#reports">Reports</a>
+              </nav>
+            </div>
+          </div>
+
+	  
+		  <div ng-view></div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Copy Rights Text @2017</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+	  
+	<script type="text/ng-template" id="/inline-formSubmit.html">
+	  <h3 class="cover-heading">Track Record Page</h3>
+	  <form class="input-sm" >
+	  <div class="inner cover pre-scrollable"  >
+		
+		  <div class="form-group text-left col-sm-7 input-sm">
+		    <label for="software" class="control-label">Employee Details</label>
+			<div class="input-sm" style="height:45px">
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.employee.id" placeholder="Employee ID">
+			</div>	
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.employee.name" placeholder="Employee Name">
+			</div>
+			<div class="input-sm">
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.employee.phone" placeholder="Employee Phone">
+			</div>
+		  </div>
+		  
+		  <div class="form-group text-left col-sm-7 input-sm">
+		    <label for="software" class="control-label">Customer Details</label>
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.customer.name" placeholder="Customer Name">
+			</div>
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.customer.address" placeholder="Customer Address">
+			</div>			
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.customer.phone1" placeholder="Phone 1">
+			</div>
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.customer.phone2" placeholder="Phone 2">
+			</div>			
+		  </div>
+	
+		  <div class="form-group text-left col-sm-7 input-sm">
+		    <label for="software" class="control-label">Software Installation Details</label>
+			<div class="input-sm" style="height:45px">
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.install.id" placeholder="Date">
+			</div>	
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.install.time" placeholder="Time">
+			</div>
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.install.charges" placeholder="Charges">
+			</div>			
+			<div class="input-sm" style="height:45px">
+			  <input type="email" class="form-control" id="software" ng-model="trackingreq.install.discamt" placeholder="Discount Amount">
+			</div>
+			<div class="input-sm" style="height:45px" >
+			  <input type="email" disabled class="form-control" id="software" ng-model="trackingreq.install.discamt" placeholder="Total Installation Charges">
+			</div>			
+		  </div>
+
+		  <div class="form-group text-left col-sm-7">
+			<label for="customer">Charges Paid ?</label>
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-success btn-sm active" data-toggle="happy" data-title="Y">YES</a>
+    					<a class="btn btn-danger btn-sm notActive" data-toggle="happy" data-title="N">NO</a>
+    				</div>
+    				<input type="hidden" name="happy" id="happy">
+    			</div>			
+		  </div>		  
+		  
+		  <div class="form-group text-left col-sm-7">
+			<label for="customer">Installation Done ?</label>
+    			<div class="input-group" >
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-success btn-sm " 
+						ng-class="{active: (trackingreq.installDone == 'YES' || trackingreq.installDone == null )}" ng-click="trackingreq.installDone = 'YES'"
+						data-toggle="happy" data-title="Y">YES</a>
+    					<a class="btn btn-danger btn-sm " 
+						ng-class="{active: (trackingreq.installDone == 'NO' )}" ng-click="trackingreq.installDone = 'NO'"
+						data-toggle="happy" data-title="N">NO</a>
+    				</div>
+    			</div>
+		  </div>
+		  
+		  <div class="form-group text-left col-sm-7" ng-show="trackingreq.installDone==='NO'">
+			<label for="customer">Issue Description</label>
+    			<div class="input-group">
+				  <textarea class="form-control" placeholer="Message"></textarea>
+    			</div>			
+		  </div>		  
+		  
+		  <div class="form-group text-left col-sm-7">
+			<label for="customer">Installation Status ?</label>
+    			<div class="input-group">
+    				<div id="radioBtn" class="btn-group">
+    					<a class="btn btn-success btn-sm active" data-toggle="happy" data-title="D">Done</a>
+    					<a class="btn btn-warning btn-sm notActive" data-toggle="happy" data-title="P">In Progress</a>
+						<a class="btn btn-danger btn-sm notActive" data-toggle="happy" data-title="F">Failed</a>
+    				</div>
+    			</div>			
+		  </div>
+		  
+
+		</div>
+  
+			 
+	</div>	
+	<BR>
+		<button type="submit" class="btn btn-danger">Submit</button>
+		<button type="reset" class="btn btn-danger">Clear</button>
+	  </form>
+	</script>	
+
+	<script type="text/ng-template" id="/inline-home.html">
+	  <div class="inner cover">
+	    <h1 class="cover-heading">
+		
+		Welcome to Tracking System
+		
+		</h1>
+	  </div>
+	</script>		
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script> 
+<script>
+var app = angular.module("trackingApp", ["ngRoute"]);
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    $routeProvider
+	.when('/',{templateUrl:'/inline-home.html'})
+	.when('/submitForm'	,
+	      { 
+		    controller: 'submitFormController',
+		    templateUrl :'/inline-formSubmit.html',
+		  })
+	.when('/reports',{template:'This is the Report Route'});
+}]); 
+
+app.controller('submitFormController', function($scope) {
+	$scope.trackingreq = {};
+	$scope.trackingreq.status = "done";
+	$scope.employees = [ {id:1, "name":"pavan"} , {id:2, "name":"daljeet"} ];
+	$scope.customers = [ {id:1, "name":"Cognizant"} , {id:2, "name":"IBM"} ];
+});
+  
+  
+</script>
+
+</body></html>
